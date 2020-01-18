@@ -1,4 +1,3 @@
-""" 
 # --------------Ex1-----------------
 def part_of_day():
     hour=int(input("Enter a hour from 0 to 24\n"))
@@ -18,7 +17,6 @@ def part_of_day():
         print("Enter a number from 0 to 24")         
 part_of_day() 
 
-"""
 # --------------Ex2-----------------
 def connverter():
     print("\n Hello! What do you want to convert?\n Enter 1, 2 or 3 \n")
@@ -44,13 +42,13 @@ def connverter():
     
 def inch_to_sm():
     inch=int(input("Enter inch: "))
-    result=inch*2.54
-    print(result, "\n")
+    result=round(inch*2.54, 1)
+    print(result, " sm \n")
 
 def inch_to_sm():
     sm=int(input("Enter sm: "))
-    result=sm/2.54
-    print(result, "\n") 
+    result=round(sm/2.54, 1)
+    print(result, "inch \n") 
 
 connverter()
 
