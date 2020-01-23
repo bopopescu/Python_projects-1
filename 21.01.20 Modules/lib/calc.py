@@ -4,21 +4,26 @@ if __name__ == "main":
     mult()
     dev()
 
-
 def plus(*params):
     res = 0
     for item in params:
         res += item
     return res
 
+def minus(*params):
+    res = 0
+    for item in params:
+        res -= item
+    return res
 
-def minus(a, b):
-    return a-b
+def mult(*params):
+    res = 0
+    for item in params:
+        res *= item
+    return res
 
-
-def mult(a, b):
-    return a-b
-
-
-def dev(a, b):
-    return a-b
+def dev(*params):
+    res = 0
+    for item in params:
+        res /= item
+    return res
