@@ -60,38 +60,27 @@ names3 = names1[3:5:2]
 print("names3: ", names3)
 
 """
-# -------1---------
-num = [5, 75, 82, 2, 15, 1, 14]
-print(num)
-min_value = min(num)
-max_value = max(num)
-min_index = num.index(min_value)
-max_index = num.index(max_value)
-# temp = copy.deepcopy(max)
-# min = temp
-# max = min
-print("min_value", min_value)
-print("max_value", max_value)
-print("min_index", min_index)
-print("max_index", max_index)
-temp = num[min_index]
-num[min_index] = num[max_index]
-num[max_index] = temp
+# # -------1v---------
+# num = [5, 75, 82, 2, 15, 1, 14]
+# print(num)
+# min_value = min(num)
+# max_value = max(num)
+# min_index = num.index(min_value)
+# max_index = num.index(max_value)
+# print("min_value", min_value)
+# print("max_value", max_value)
+# print("min_index", min_index)
+# print("max_index", max_index)
+# temp = num[min_index]
+# num[min_index] = num[max_index]
+# num[max_index] = temp
 
-print("New Arr = ", num)
+# print("New Arr = ", num)
 
-# -------2---------
-num1 = [5, 75, 82, 2, 15, 1, 14]
-summ_p = 0
-summ_np = 0
-for i in num1:    
-    if i % 2 == 1:
-        summ_p += i
-    else:
-        summ_np += i    
-print("summ_p: ", summ_p)
-print("summ_np: ", summ_np)
-print(sum(num1[1::2]))
+# # -------2v---------
+# num1 = [5, 75, 82, 2, 15, 1, 14]
+# summ = sum(num1[1::2])
+# print(summ)
 
 
 # # -------3v---------
@@ -100,12 +89,14 @@ print(sum(num1[1::2]))
 # print("num2: ", num2)
 # print("num3: ", num3)
 
-# # -------4---------
+# # -------4v---------
 # num4 = [11, 12, 13, 14, 15]
 # num5 = [16, 17, 18, 19, 20]
 # num6 = []
 # num6.extend(num4)
-# print(num6) 
+# num6.extend(num5)
+# print(num6)
+
 
 
 
