@@ -1,4 +1,4 @@
-""" from lib.calc import plus, minus, mult, dev
+from lib.calc import plus, minus, mult, dev
 
 print("Hello! Choose an action! \n Enter 1,2,3,4 or 5")
 print("1 - +")
@@ -19,8 +19,7 @@ elif action == 3:
     print("Multiplication =", res, "\n")
 elif action == 4:
     dev = res(2, 3, 10)
-    # print("Division =", res, "\n") """
-
+    # print("Division =", res, "\n")
 
 
  
