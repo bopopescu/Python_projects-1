@@ -7,5 +7,8 @@ phones = [
     {"id": "4", "vendor": "Huawei", "model": "P30", "price": 25000},
     {"id": "5", "vendor": "iPhone", "model": "11Pro Max", "price": 36000}
 ]
-start(phones)
- 
+
+try:
+    start(phones)
+except Exception as e:
+    print(e)
