@@ -28,7 +28,7 @@ deactivate () {
     fi
 
     unset VIRTUAL_ENV
-    if [ ! "$1" = "nondestructive" ] ; then
+    if [ ! "${1:-}" = "nondestructive" ] ; then
     # Self destruct!
         unset -f deactivate
     fi
@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\kulakovska\Desktop\pyton_projects\YoutubeDounloader_30.01.20\env"
+VIRTUAL_ENV="C:\Рая_новий_к\ШАГ\Python\pyton_classworks\YoutubeDounloader_30.01.20\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -5,9 +5,11 @@ if __name__ == "main":
 
 def start(items):
     """ Sales Manager """
-    print(type(items))
-    a = "<class 'list'>"
-    if type(items) is not a:
+    print(type(items)) 
+    # # так теж можна:  
+    # if isinstance(items, tuple):
+    #     raise Exception("Type of items must be a list, not a tuple!")
+    if type(items) is not list:
         raise Exception("Type of items must be a list!")
     db_items = items
     sold_list_global = []
@@ -28,27 +30,34 @@ def start(items):
         elif choice == 3:
             print("Whole list: => \n", db_items)
             it_to_del = dell_item(db_items)
+            if it_to_del not in db_items:
+                raise Exception("This item to delete is not in list")
             db_items.remove(it_to_del)
             list_after_del = []
             list_after_del.extend(db_items)
             print("new list => \n", list_after_del)
+            
         elif choice == 4:
             sorted_list = sort_by_price(db_items)
             print("list, sorted by price => \n", sorted_list)
         elif choice == 5:
             result_it_soldList = sell_items(db_items)
+            if result_it_soldList[0] not in db_items:
+                raise Exception("This item to sell is not in list")
             db_items.remove(result_it_soldList[0])
             list_after_sell = []
             list_after_sell.extend(db_items)
             sold_list_global.extend(result_it_soldList[1])
             print("new list => \n", list_after_sell)
         elif choice == 6:
+            if len(sold_list_global) == 0:
+                raise Exception("There is no sold items yet! ")
             print("Sold list: \n", sold_list_global)
         elif choice == 0:
             exit = True
             print("By!")
         else:
-            print("R.T.F.M")
+            print("Please, enter a number from 1 to 6 or 0!")
 
 
 def show_items(items):
@@ -57,14 +66,17 @@ def show_items(items):
 
 
 def add_item():
+    
     """ Add a new phone """
     vendor = input("Enter vendor: ")
     model = input("Enter model: ")
     price = input("Enter price: ")
     id = input("Enter id: ")
+    if vendor == "" or model == "" or price == "" or vendor == " " or model == " " or price == " ":
+        raise Exception("Tomething is wrong with adding!")
     new_item = {"id": id, "vendor": vendor, "model": model, "price": price}
     return new_item
-
+    
 
 def dell_item(items):
     """ Delete a phone """

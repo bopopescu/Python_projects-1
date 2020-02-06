@@ -1,5 +1,5 @@
-import youtube_dl as ud
-import subprocess
+# import youtube_dl as ud
+# import subprocess
 
 #https://www.youtube.com/watch?v=fCmm8toLtkA&t=443s
 
