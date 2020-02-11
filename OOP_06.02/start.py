@@ -20,8 +20,8 @@ class Person:
 
 # Jack = Person("Jack")
 # Jack.__show_person()
-# Bobick = Person("Bobik")
-# Bobick.__show_person()
+# Bobik = Person("Bobik")
+# Bobik.__show_person()
 Bill = Person("Bill")
 print(Bill.get_name())
 print(Bill.set_name("Nick"))
