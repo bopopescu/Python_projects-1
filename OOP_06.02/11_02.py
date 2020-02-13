@@ -46,13 +46,20 @@ print(bill.name, "\n")
 
 class Junior(Person):
     def __init__(self, name:str,  surname:str, age:int, skills:str, position:str):
+        
         Person.__init__(self, name, surname, age)
         self.__skills = skills
         self.__position = position
 
+    def show_person_info(self):
+        print("Name: ", self.name, "\nSurname: ", self.surname, "\nAge: ", self.age, "\nPosition: ", self.__position, "\nSkills: ", self.__skills)
+
 jun = Junior("Adam", "Dobson", 23, "write code using Stake Owerflow", "Full stack Overflow Developer")
 jun.show_person_info()
-
+jun.name = "Adamus"
+jun.surname = "Dobsunos"
+jun.age = 24
+jun.show_person_info()
     
 
 
