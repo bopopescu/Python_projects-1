@@ -17,21 +17,16 @@ def hp(self, new_hp:int):
 def dmg(self):
     return self.__dmg
 
-@dmg.setter
-def dmg(self, new_dmg:int):
-    self.__dmg = new_dmg
-
 @property
 def dodge(self):
     return self.__dodge
 
-@dmg.setter
-def dmg(self, new_dmg):
-    self.__dmg = new_dmg
-
-Swordsman = Unit(15, 5, 60)
-Archer = Unit(12, 4, 40)
-Mage = Unit(8, 10, 30)
+# Swordsman = Unit(15, 5, 60)
+# Archer = Unit(12, 4, 40)
+# Mage = Unit(8, 10, 30)
+class Swordsman(Unit):
+   def __init__(self, hp:int, dmg:int, dodge:int)
+      Unit.__init__
 
 def main_make_teams():
     """ Makes 2 teams, 3 members in each"""
@@ -64,7 +59,7 @@ try:
     team1 = teams[0] 
     team2 = teams[1]
     # print(team1)
-    print(team1[0])
+    print(team1[0].hp)
 except Exception as e:
     print("Error is =>", e)
 
