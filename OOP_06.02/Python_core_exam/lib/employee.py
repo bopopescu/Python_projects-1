@@ -5,8 +5,8 @@ class Employee(ABC):
     __id = 0
 
     # @abstractclassmethod
-    def __init__(self, name, surname, age, salary):
-        self.__id += 1
+    def __init__(self, name:str, surname:str, age:int, salary:int):
+        # self.__id += 1
         self.__name = name
         self.__surname = surname
         self.__age = age

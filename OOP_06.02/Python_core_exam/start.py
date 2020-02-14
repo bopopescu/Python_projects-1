@@ -1,15 +1,12 @@
-from lib.empl import Employee
+from lib.employee import Employee
 from lib.dev import Developer
+# from lib.save import save
+from lib.main import hr_manager
 
 try:
-    emp1 = Developer("Bill", "Gates", 44, 3000, "C++")
-    print(emp1.name)
-
-    # emp2 = Developer("Stive", "Gates", 34, 2000, "Java Script")
-    # print(emp2.name)
-    # test = Employee("tEST", "TEST2", 12, 2112)
-    
-    emp1.show_info()
+    # emp1 = Developer("Bill", "Gates", 44, 3000, "C++")    
+    # emp1.show_info()
+    hr_manager()
 
 except Exception as e:
     print("Error => ", e)
