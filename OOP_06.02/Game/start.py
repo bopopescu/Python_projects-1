@@ -2,13 +2,14 @@ from random import randint
 
 
 class Unit:
-    def __init__(self,  hp: int, dmg: int, dodge: int):
+    def __init__(self,  hp: int, dmg: int, dodge: int, name: str):
         self.__hp: int = hp
         self.__dmg: int = dmg
         self.__dodge: int = dodge
+        self.__name: str = name
 
     def attack(self, enemy):
-        enemy.hp = enemy.hp - enemy.dmg
+        enemy.hp = enemy.hp - self.__dmg
 
     @property
     def hp(self):
@@ -26,11 +27,13 @@ class Unit:
     def dodge(self):
         return self.__dodge
 
+    @property
+    def name(self):
+        return self.__name
 
-Swordsman = Unit(15, 5, 60, )
-Archer = Unit(12, 4, 40)
-Mage = Unit(8, 10, 30)
-
+Swordsman = Unit(15, 5, 60, "Swordsman")
+Archer = Unit(12, 4, 40, "Archer")
+Mage = Unit(8, 10, 30, "Mage")
 
 def main_make_teams():
     """ Makes 2 teams, 3 members in each"""
@@ -68,84 +71,89 @@ except Exception as e:
 def start_game():
     count_hp_1team = team1[0].hp + team1[1].hp + team1[2].hp
     count_hp_2team = team2[0].hp + team2[1].hp + team2[2].hp
-    exit = True
-
+    print(f"\nПочатковий рахунок: {count_hp_1team}:{count_hp_2team}")
+    exit = False
     while not exit:
+        try: 
+            # Визначаємо хто з команди атакує і кого атакує:           
+            ataking_numb = randint(1, 3)
+            ataked_numb = randint(1, 3)
 
-        if count_hp_1team > 0 and count_hp_2team > 0:
-            exit = False
-        else:
-            exit = True
+            # 1-ша команда атакує            
+            input("Натисніть Enter щоб атакувати!\n")
+            print("1-ша команда атакує")
+            if ataking_numb == 1:
+                ataking = team1[0]
+            elif ataking_numb == 2:
+                ataking = team1[1]
+            elif ataking_numb == 3:
+                ataking = team1[2]
 
-        ataking_numb = randint(1, 3)
-        ataked_numb = randint(1, 3)
+            if ataked_numb == 1:
+                ataked = team2[0]
+            elif ataked_numb == 2:
+                ataked = team2[1]
+            elif ataked_numb == 3:
+                ataked = team2[2]
 
-        # 1-st team is attaking
-        input("Press Enter to attack!")
-        print("1-st team is attaking")
-        if ataking_numb == 1:
-            ataking = team1[0]
-        elif ataking_numb == 2:
-            ataking = team1[1]
-        elif ataking_numb == 3:
-            ataking = team1[2]
+            print(f"{ataking.name} з 1-ї команди нападає на {ataked.name} з 2 команди ")
+            chanse_to_live = randint(1, 100)
+            if chanse_to_live > ataked.dodge:
+                print("Атака успішна")
+                ataking.attack(ataked)
+                print("{} втратив {} життів. ".format(ataked.name, ataking.dmg))
+                count_hp_2team = count_hp_2team - ataking.dmg
+                print("Рахунок: {}:{}\n".format(count_hp_1team, count_hp_2team))
+            else:
+                print("Атака не вдалась...\n")
 
-        if ataked_numb == 1:
-            ataked = team2[0]
-        elif ataked_numb == 2:
-            ataked = team2[1]
-        elif ataked_numb == 3:
-            ataked = team2[2]
+            # 2-га команда атакує
+            input("Натисніть Enter для контратаки!\n")
+            print("2-га команда атакує")
+            if ataking_numb == 1:
+                ataking = team2[0]
+            elif ataking_numb == 2:
+                ataking = team2[1]
+            elif ataking_numb == 3:
+                ataking = team2[2]
 
-        print(f"{ataking}з 1-ї команди атакує {ataked}а з 2 команди \n")
-        chanse_to_live = randint(1, 100)
-        if chanse_to_live > ataked.dodge:
-            print("Атака успішна")
-            ataking.attack(ataked)
-            print("{} втратив {} життів. ".format(ataked, ataking.dmg))
-            count_hp_1team = count_hp_1team - ataking.dmg
-            print("Рахунок: {}:{}".format(count_hp_1team, count_hp_2team))
-        else:
-            print("Атака не вдалась...")
+            if ataked_numb == 1:
+                ataked = team1[0]
+            elif ataked_numb == 2:
+                ataked = team1[1]
+            elif ataked_numb == 3:
+                ataked = team1[2]
 
-        # 2-st team is attaking
-        input("Press Enter to contrattack!")
-        print("2-st team is attaking")
-        if ataking_numb == 1:
-            ataking = team2[0]
-        elif ataking_numb == 2:
-            ataking = team2[1]
-        elif ataking_numb == 3:
-            ataking = team2[2]
+            print(f"{ataking.name} з 2-ї команди нападає на {ataked.name} з 1 команди ")
+            chanse_to_live = randint(1, 100)
+            if chanse_to_live > ataked.dodge:
+                print("Атака успішна")
+                ataking.attack(ataked)
+                print("{} втратив {} життів. ".format(ataked.name, ataking.dmg))
+                count_hp_1team = count_hp_1team - ataking.dmg
+                print("Рахунок: {}:{}\n".format(count_hp_1team, count_hp_2team))
+            else:
+                print("Атака не вдалась...\n")
 
-        if ataked_numb == 1:
-            ataked = team1[0]
-        elif ataked_numb == 2:
-            ataked = team1[1]
-        elif ataked_numb == 3:
-            ataked = team1[2]
+            if count_hp_1team <= 0 or count_hp_2team <= 0:
+                exit = True
+                print("Гру закінчено!")                
+                if count_hp_1team > count_hp_2team:
+                    print("Виграла 1 команда!!! \nУ них залишилось {} хітпоінтів.\n".format(count_hp_1team))
+                elif count_hp_1team < count_hp_2team:
+                    print("Виграла 2 команда!!! \nУ них залишилось {} хітпоінтів.\n".format(count_hp_2team))
+                else:
+                    print("Нічия, перемогла дружба!!!\n")
+            else:
+                exit = False        
 
-        print(f"{ataking}з 2-ї команди атакує {ataked}а з 1 команди \n")
-        chanse_to_live = randint(1, 100)
-        if chanse_to_live > ataked.dodge:
-            print("Атака успішна")
-            ataking.attack(ataked)
-            print("{} втратив {} життів. ".format(ataked, ataking.dmg))
-            count_hp_2team = count_hp_2team - ataking.dmg
-            print("Рахунок: {}:{}".format(count_hp_1team, count_hp_2team))
-        else:
-            print("Атака не вдалась...")
-    print("Count hp 1 team: ", count_hp_1team, "\n")
-    print("Count hp 2 team: ", count_hp_2team, "\n")
-    if count_hp_1team > count_hp_2team:
-        print("Виграла 1 команда!!!")
-    elif count_hp_1team < count_hp_2team:
-        print("Виграла 2 команда!!!")
-    else:
-        print("Нічия, перемогла дружба!!!")
+        except Exception as error:
+            print("Error in while => ", error)
+
+    return count_hp_1team, count_hp_2team
 
 
 try:
     start_game()
 except Exception as e:
-    print("Error is =>", e)
+    print("Error start_game =>", e)
