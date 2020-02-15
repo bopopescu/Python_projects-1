@@ -80,9 +80,10 @@ def hr_manager():
             list_after_del.extend(list_employees)
             print("New list:")
             show_employees()
-        elif choice == 4:            
-            save = Save(Save.file_name)
-            save.save_in_file()        
+        elif choice == 4: 
+            file_name = str(input("Enter name of file in format 'name.extension': \n"))            
+            save = Save(file_name)
+            save.save_in_file(list_employees)        
         
 
 
