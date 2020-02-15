@@ -82,8 +82,7 @@ def hr_manager():
             show_employees()
         elif choice == 4:            
             save = Save(Save.file_name)
-            save.save_in_file()
-            
+            save.save_in_file()        
         
 
 
