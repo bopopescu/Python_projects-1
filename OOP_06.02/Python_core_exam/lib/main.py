@@ -4,6 +4,7 @@ from lib.hr import HR
 from lib.pm import PM
 from lib.ba import BA
 from lib.save import Save
+import json
 
 if __name__ == "main":
     hr_manager()
@@ -35,7 +36,7 @@ def hr_manager():
         print("Your choice is: ",choice,"\n")
         if choice == 1:
             if len(list_employees) == 0:
-                raise Exception("List employees is empty yet ")
+                print("List employees is empty yet ")
             else:
                 show_employees()
         elif choice == 2:
@@ -81,9 +82,15 @@ def hr_manager():
             print("New list:")
             show_employees()
         elif choice == 4: 
-            file_name = str(input("Enter name of file in format 'name.extension': \n"))            
-            save = Save(file_name)
-            save.save_in_file(list_employees)        
+            file_name = str(input("Enter name of file: \n"))
+
+            #  якщо хочемо в то замість file_name ставимо file_name_json            
+            # file_name_json = file_name+".json"
+            # print(list_employees)
+            # print(json.dumps(list_employees))
+                               
+            save = Save(file_name, list_employees)
+            save.save_in_file(file_name, list_employees)        
         
 
 
