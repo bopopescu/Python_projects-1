@@ -10,7 +10,9 @@ from lib.manager import Db_manager
 # )
 # cursor = db.cursor()
 
-
+# cursor.execute("SHOW TABLES")
+# for item in cursor:
+#   print(item)
 
 # sql = "INSERT INTO users (name, surname, age, email) VALUES (%s, %s, %s, %s)"
 # value = (name, surname, age, email)

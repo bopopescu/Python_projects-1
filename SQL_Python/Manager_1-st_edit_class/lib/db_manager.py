@@ -16,11 +16,7 @@ class Db_manager:
             password=password,
             database=database
         )
-        self.cursor = db.cursor()
-    def test_connection():
-        self.cursor.execute("SHOW TABLES")
-
-
+        
     @property
     def host(self):
         return self.__host
@@ -45,14 +41,6 @@ class Db_manager:
     def password(self, password):
         self.__password = password
 
-    @property
-    def cursor(self):
-        return self.__cursor
-
-    @cursor.setter
-    def cursor(self, cursor):
-        self.__cursor = cursor
-
-    def register(self):
+   
 
 
