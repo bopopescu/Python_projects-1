@@ -13,19 +13,28 @@ def manager():
         if choice < 1 or choice > 5:
             raise Exception("Number of choice must be 1...5!")
         print("Your choice is: ", choice, "\n")
+
         if choice == 1:
-            a = test.register_user()
-            print(a)
-        if choice == 2:
-            res = test.login_user()
+            res = test.register_user()            
             for item in res:
                 print(item)
+
+        if choice == 2:
+            log = test.login_user()
+            print(log)
+            # if not log:
+            #     print("You mast register at first!")
+            # elif log:
+            #     print("You are welcome!")        
+            # else: print("Password is incorrect!")
+            
         if choice == 3:
             res = test.show_users()
             for item in res:
                 print(item)
+
         if choice == 4:
-            test.delete_user()
+            res = test.delete_user()
         if choice == 5:
             exit = True
             print("By!")
