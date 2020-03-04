@@ -31,8 +31,8 @@ class Db_manager():
         cursor.execute(sql, val)
         
         self.__db.commit()
-        result = cursor.fetchall()        
-        return result        
+        # result = cursor.fetchall()        
+        # return result        
 
     def login_user(self):
         cursor = self.__db.cursor()

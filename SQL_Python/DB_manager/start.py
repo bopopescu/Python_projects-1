@@ -15,9 +15,10 @@ def manager():
         print("Your choice is: ", choice, "\n")
 
         if choice == 1:
-            res = test.register_user()            
-            for item in res:
-                print(item)
+            # res = test.register_user()
+            test.register_user()            
+            # for item in res:
+            #     print(item)
 
         if choice == 2:
             log = test.login_user()
@@ -39,7 +40,4 @@ def manager():
             exit = True
             print("By!")
 
-try:
-    manager()
-except Exception as e:
-    print("Error => ", e)
+manager()
