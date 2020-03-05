@@ -2,7 +2,7 @@ from lib.db_manager import Db_manager
 
 
 def manager():
-    """db_manager based on classes"""
+    """simple db_manager based on class without api"""
     exit = False
     while not exit:
         test = Db_manager("localhost", "root", "", "loginsystem")
@@ -15,19 +15,18 @@ def manager():
         print("Your choice is: ", choice, "\n")
 
         if choice == 1:
-            # res = test.register_user()
-            test.register_user()            
-            # for item in res:
-            #     print(item)
-
+            add = test.register_user()
+            if add:
+                print("User added sucsessfully!")  
+            else:
+                print("This email allready exist!")
         if choice == 2:
             log = test.login_user()
-            print(log)
-            # if not log:
-            #     print("You mast register at first!")
-            # elif log:
-            #     print("You are welcome!")        
-            # else: print("Password is incorrect!")
+            if log:
+                print("You are welcome!")
+            if not log:
+                print("You doesnt log in, try agane!")                   
+            
             
         if choice == 3:
             res = test.show_users()
@@ -40,4 +39,6 @@ def manager():
             exit = True
             print("By!")
 
+
 manager()
+
