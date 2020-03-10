@@ -1,0 +1,4 @@
+﻿1. - SELECT * FROM `orders` WHERE amt REGEXP "(%%%)"
+2. SELECT * FROM `salers` WHERE city REGEXP '( )'
+3. - SELECT * FROM `salers` WHERE sname REGEXP '[%]{6}' AND city REGEXP '[%]{6}'
+4. !!! SELECT * FROM `orders` WHERE amt REGEXP '(.00)'

@@ -9,13 +9,13 @@ if __name__ == "__main__":
 
 def dbc_manager():
    
-    Db_connector("localhost", "root", "")
-    db = Db_connector.db
+    test = Db_connector("localhost", "root", "")
+    db = test.db
     cursor = db.cursor()      
-    # cursor.execute("CREATE DATABASE IF NOT EXISTS bank_c")
+    cursor.execute("CREATE DATABASE IF NOT EXISTS bank_c")
 
-    check = Dbc_connector.test
-    if check:
-        print("Yes!")
+    # check = Dbc_connector.test
+    # if check:
+    #     print("Yes!")
 
     
